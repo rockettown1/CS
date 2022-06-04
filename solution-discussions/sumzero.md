@@ -12,7 +12,7 @@ description: Given a sorted array, return two numbers that sum to zero.
 
 
 The naive solution is to loop through the array for each item in the array (nested for loops). So take the first number, and loop through the array looking for a second number that sums to zero. \
-This is obviously not great from a time complexity O(n^2) because for an array of length n, the number of operations increases by n^2.\
+This is obviously not great from a time complexity O(n^2) because for an array of length n, the number of operations increases by n^2. NOTE: This solution just returns the first pair it finds, if the problem asks for all pairs then it should be modified.\
 
 
 #### Naive solution O(n^2) - quadratic time
