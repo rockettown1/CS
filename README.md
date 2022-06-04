@@ -4,7 +4,7 @@
 * [Introduction](introduction.md)
 * [General Problem Solving Advice](general-problem-solving-advice.md)  
 
-## [data-structures](data-structures/README.md)
+## data-structures
   * [Doubly Linked Lists](data-structures/doubly-linked-lists.md)
   * [Graphs](data-structures/graphs.md)
   * [Hash Tables](data-structures/hash-tables.md)
@@ -13,13 +13,13 @@
   * [Stacks & Queues](data-structures/stacks-and-queues.md)
   * [Trees](data-structures/trees.md)  
   
-## [searching-algorithms](searching-algorithms/README.md)
+## searching-algorithms
   * [Binary Search](searching-algorithms/binary-search.md)
   * [Breadth First Search](searching-algorithms/breadth-first-search.md)
   * [Depth First Search](searching-algorithms/depth-first-search.md)
   * [Linear Search](searching-algorithms/linear-search.md)
 
-## [sorting-algorithms](sorting-algorithms/README.md)
+## sorting-algorithms
 * * [Sorting Background Info](sorting-algorithms/sorting-background-info.md)
   * [Bubble Sort](sorting-algorithms/bubble-sort.md)
   * [Insertion Sort](sorting-algorithms/insertion-sort.md)
@@ -29,12 +29,12 @@
   * [Selection Sort](sorting-algorithms/selection-sort.md)
   
 
-## [further-algorithms](further-algorithms/README.md)
+## further-algorithms
   * [Dijkstra's Algorithm](further-algorithms/dijkstras-algorithm.md)
   * [Kadane's Algorithm](further-algorithms/kadanes-algorithm.md)
 
 
-## [solution-discussions](solution-discussions/README.md)
+## solution-discussions
   * [SumZero](solution-discussions/sumzero.md)
 
 
