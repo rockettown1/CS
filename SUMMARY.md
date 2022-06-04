@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Table of contents](README.md)
+* [Big-O](big-o.md)
 * [Dynamic Programming](dynamic-programming.md)
 * [General Problem Solving Advice](general-problem-solving-advice.md)
 * [Introduction](introduction.md)
