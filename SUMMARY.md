@@ -1,10 +1,10 @@
 # Table of contents
 
 * [Table of contents](README.md)
+* [Introduction](introduction.md)
+* [General Problem Solving Advice](general-problem-solving-advice.md)
 * [Big-O](big-o.md)
 * [Dynamic Programming](dynamic-programming.md)
-* [General Problem Solving Advice](general-problem-solving-advice.md)
-* [Introduction](introduction.md)
 * [Recursion](recursion.md)
 * [data-structures](data-structures/README.md)
   * [Doubly Linked Lists](data-structures/doubly-linked-lists.md)
