@@ -1,4 +1,7 @@
-### Comp Sci stuff (data structures, algorithms, general problem solving)
+---
+description: What is this content?
+---
 
-Click here for [Table of contents](SUMMARY.md)
+# Introduction
 
+This repo acts as storage for general concepts in computer science. It'll be mainly focused on problem solving techniques, data structures and algorithms.
