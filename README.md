@@ -1,6 +1,4 @@
----
-description: What is this content?
----
+
 
 # Introduction
 
