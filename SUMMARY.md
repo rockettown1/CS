@@ -1,6 +1,7 @@
 # Table of contents
 
-* [Big O](README.md)
+* [Introduction](README.md)
+* [Big O](<README (1).md>)
 * [General Problem Solving Advice](general-problem-solving-advice.md)
 
 ## Data Structures
