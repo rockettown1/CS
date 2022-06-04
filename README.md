@@ -1,4 +1,4 @@
-# Comp Sci stuff (data structures, algorithms, general problem solving)
+### Comp Sci stuff (data structures, algorithms, general problem solving)
 
-## [Table of contents](summary.md)
+Click here for [Table of contents](summary.md)
 
