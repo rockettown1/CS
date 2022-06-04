@@ -18,7 +18,7 @@
   * [Linear Search](searching-algorithms/linear-search.md)
 
 ## sorting-algorithms
-* * [Sorting Background Info](sorting-algorithms/sorting-background-info.md)
+ * [Sorting Background Info](sorting-algorithms/sorting-background-info.md)
   * [Bubble Sort](sorting-algorithms/bubble-sort.md)
   * [Insertion Sort](sorting-algorithms/insertion-sort.md)
   * [Merge Sort](sorting-algorithms/merge-sort.md)
