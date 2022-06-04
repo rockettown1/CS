@@ -101,11 +101,11 @@ factorial of 3 (1 \* 2 \* 3) is the same as (factorial of 1 \* factorial of 2 \*
 
 or in other words the number multiplied by the factorial of the number before it
 
-so our factorial function needs to return the product of a number and the factorial before it.\
+So our factorial function needs to return the product of a number and the factorial before it, unless the number is 1 (no factorial before it) then it should just return 1.\
 
 
 ```javascript
-//Itertive (using the accumulator pattern)
+//Iterative (using the accumulator pattern)
 
 function factorial(num){
     let total = 1
@@ -128,3 +128,13 @@ function factorial(num){
 }
 
 ```
+
+### Where things can go wrong
+
+* No base case\
+  Functions will keep calling themselves, which means you'll reach the max call stack size (stack overflow).
+* Forgetting to return or returning the wrong thing\
+  Can also lead to a similar outcome has a missing base case
+
+
+
