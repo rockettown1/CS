@@ -10,22 +10,18 @@ Chose the middle element and do a comparison on whether an item is before or aft
 // JavaScript
 
 function binarySearch(arr, val){
- //pointer indices
+  //pointer indices
   let left = 0;
   let right = arr.length - 1;
-  let middle = Math.round((right + left) / 2);
 
-  while (right >= left && left <= right) {
+  while (left <= right) {
+    let middle = Math.round((left + right) / 2);
     if (val == arr[middle]) return middle;
 
     //update left or right pointer
     if (val < arr[middle]) right = middle - 1;
     else left = middle + 1;
-
-    //update middle pointer
-    middle = Math.round((right + left) / 2);
   }
-
   return -1;
 }
 ```
