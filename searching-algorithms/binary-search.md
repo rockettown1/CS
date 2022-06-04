@@ -4,7 +4,7 @@ description: Discard half the data on each iteration (only works with sorted dat
 
 # Binary Search
 
-Chose the middle element of an array and do a comparison on whether the value we're looking for is equal to, before or after the middle element picked. Based on whether it's before or after determines which part of the array we search next, effectively cutting the number of items needed to search in half on each iteration. This is an example of divide and conquer.
+Choose the middle element of an array and do a comparison on whether the value we're looking for is equal to, before or after the middle element picked. Based on whether it's before or after determines which part of the array we search next, effectively cutting the number of items needed to search in half on each iteration. This is an example of divide and conquer.
 
 Binary search works by using the two pointers at either end of an array (or sub array) and dividing the search window in half each iteration.&#x20;
 
