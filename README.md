@@ -1,6 +1,4 @@
 # Table of contents
-
-* [Table of contents](README.md)
 * [Introduction](introduction.md)
 * [General Problem Solving Advice](general-problem-solving-advice.md)  
 
