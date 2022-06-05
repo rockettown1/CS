@@ -18,13 +18,13 @@ Given the array \[ 2, 6, 1, 7, 3]\
 \
 **Third pass**\
 ****\[ <mark style="color:red;">**1, 2**</mark>, 3, 6, 7] -> no swap\
-\[ 1, <mark style="color:red;">**2, 3**</mark>, <mark style="color:green;">6, 7</mark>] -> no swap (the value 4 is now in its correctly sorted place)\
+\[ 1, <mark style="color:red;">**2, 3**</mark>, <mark style="color:green;">6, 7</mark>] -> no swap (the value 3 is now in its correctly sorted place)\
 \
 **Fourth pass**\
 ****\[ <mark style="color:red;">**1, 2**</mark>, <mark style="color:green;">3, 6, 7</mark>] -> no swap (the value 2 is now in its correctly sorted place)\
 \
 End\
-\[ <mark style="color:green;">1, 2, 3, 6, 7</mark>]
+\[ <mark style="color:green;">1, 2, 3, 6, 7</mark>] -> all values now sorted
 
 
 
@@ -73,3 +73,29 @@ function bubbleSort(arr, length) {
 
 bubbleSort(arr, arr.length)
 ```
+
+There is an optimisation we can make to bubble, which involves keeping track of whether a swap occurred. If you imagine a situation where we have a nearly-sorted array, the code will continue to loop through until it's compared everything. \
+\
+If you look at the example at the very top of this page, there was no reason we carried out the fourth pass, because no swaps occurred on the third pass! If we can know this information we can tell our algorithm to end without needing to do any more passes. Here's the additional code we can add to our algorithm (added to the iterative implementation but you can make the same modification to the recursive version):
+
+```javascript
+//JavaScript (Iterative)
+
+function bubbleSort(arr){
+   let swaps; //outside of loop so not declaring a new variable each loop
+   for (let i = arr.length - 1; i > 0; i--) {
+   swaps = false // assign false initially as the loop starts
+    for (let j = 0; j < i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        const temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+        swaps = true // assign true if a swap has occured
+      }
+    }
+    if (!swaps) break // if it was never assigned true, break out.
+  }
+  return arr;
+}
+```
+
