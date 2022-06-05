@@ -20,17 +20,17 @@ In english:
 
 Given the array \[ 2, 6, 1, 7, 3]:
 
-**First pass:** (starting at second item comparing the value 6)\
+**First pass:** (starting at second item - comparing the value 6)\
 \[ <mark style="color:red;">2, 6</mark>, 1, 7, 3] -> no move\
 \
-**Second pass** (starting at third item and comparing the value 1)\
+**Second pass** (starting at third item - comparing the value 1)\
 \[ 2, 6<mark style="color:red;">, 6</mark>, 7, 3] -> move 6 into the index for third item\
 \[ <mark style="color:red;">1, 2</mark>, 6, 7, 3] -> move 2 into the index for second item and INSERT 1 into the first index\
 &#x20; ^   \
-**Third pass** (starting at fourth item and comparing the value 7)\
+**Third pass** (starting at fourth item - comparing the value 7)\
 \[ <mark style="color:green;">1, 2</mark>, <mark style="color:red;">6, 7</mark>, 3] -> no move\
 \
-**Fourth pass** (starting at fifth (final) item and comparing the value 3)\
+**Fourth pass** (starting at fifth (final) item - comparing the value 3)\
 \[ <mark style="color:green;">1, 2</mark>, 6, 7<mark style="color:red;">, 7</mark>] -> move 7 into the fifth spot\
 \[ <mark style="color:green;">1, 2</mark>, 6<mark style="color:red;">, 6</mark>, 7] -> move 6 into the fourth spot\
 \[ <mark style="color:green;">1, 2, 3</mark>, 6, 7] -> when 3 is compared to 2, there's no move so we INSERT 3 into that index position.\
@@ -46,15 +46,15 @@ Given the array \[ 2, 6, 1, 7, 3]:
 
 function insertionSort(arr){
     for (let i = 1; i < arr.length; i++) {
-            let current = inputArr[i];
+            let current = arr[i];
             let j = i-1; 
-            while ((j >= 0) && (current < inputArr[j])) {
-                inputArr[j+1] = inputArr[j];
+            while ((j >= 0) && (current < aArr[j])) {
+                arr[j+1] = arr[j];
                 j--;
             }
-            inputArr[j+1] = current;
+            arr[j+1] = current;
         }
-    return inputArr;
+    return arr;
 }
 ```
 
