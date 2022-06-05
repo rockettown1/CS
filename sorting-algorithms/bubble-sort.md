@@ -23,7 +23,7 @@ Given the array \[ 2, 6, 1, 7, 3]\
 **Fourth pass**\
 ****\[ <mark style="color:red;">**1, 2**</mark>, <mark style="color:green;">3, 6, 7</mark>] -> no swap (the value 2 is now in its correctly sorted place)\
 \
-End\
+**End**\
 \[ <mark style="color:green;">1, 2, 3, 6, 7</mark>] -> all values now sorted
 
 
@@ -99,3 +99,6 @@ function bubbleSort(arr){
 }
 ```
 
+#### BigO
+
+Generally average case is O(n^2) for time complexity. For best cases (nearly sorted) it would be O(n) but it's rare to come across best case scenarios.
