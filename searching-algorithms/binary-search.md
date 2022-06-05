@@ -58,4 +58,46 @@ function binarySearch(arr, val, left, right) {
   }
   return -1;
 }
+
+
+// base cases: 
+// left > right return -1
+// val = arr[middle] return middle
 ```
+
+### BigO (time complexity)
+
+Note: Logs are base 2.
+
+To understand why its log n, think of how many steps it would take to get an answer.
+
+* Say you have an array of 2 items, you would only need to run this algorithm 1 time to get an answer.
+* If you had an array of 4 items, you would need to run it 2 times
+* If you had an array of 8 items, you would need to run it 3 times
+* if you had an array of 16 items, you would need to run it 4 times
+* if you had an array of 32 items, you would need to run it 5 times
+
+So as the number of items (n) in the array doubles, the number of operations (x) increases by 1. Or more generally, as n grows, the time it takes increases by log n.
+
+Below are the steps of how we get from the first mathematical relationship to the bottom one. If you've never studied maths before it might be worth looking up the log relationships but the general idea is that log(base 2) multiplied by 2 = 1. So in the middle step you bring the exponent down to the front and the log cancels out on the left hand side.
+
+$$
+2^x = n
+$$
+
+$$
+log 2^x = log n
+$$
+
+$$
+x = log n
+$$
+
+So the number of operations (ie the time it takes) is equal to the log of the input size.
+
+
+
+| Best                    | Average  | Worst    |
+| ----------------------- | -------- | -------- |
+| O(1)                    | O(log n) | O(log n) |
+| Find item straight away |          |          |

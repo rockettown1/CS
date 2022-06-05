@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [General Problem Solving Advice](general-problem-solving-advice.md)
-* [Big-O](big-o.md)
+* [BigO](big-o.md)
 * [Dynamic Programming](dynamic-programming.md)
 
 ## Recursion
