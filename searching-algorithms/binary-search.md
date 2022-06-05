@@ -81,17 +81,9 @@ So as the number of items (n) in the array doubles, the number of operations (x)
 
 Below are the steps of how we get from the first mathematical relationship to the bottom one. If you've never studied maths before it might be worth looking up the log relationships but the general idea is that log(base 2) multiplied by 2 = 1. So in the middle step you bring the exponent down to the front and the log cancels out on the left hand side.
 
-$$
-2^x = n
-$$
+Starting with $$2^x = n$$ we log both sides $$log 2^x = log n$$&#x20;
 
-$$
-log 2^x = log n
-$$
-
-$$
-x = log n
-$$
+Moving the exponent down $$xlog 2 = log n$$ and because log2 = 1 we arrive at $$x = log n$$
 
 So the number of operations (ie the time it takes) is equal to the log of the input size.
 
