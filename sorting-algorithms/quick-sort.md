@@ -100,7 +100,7 @@ to finally place the pivot item. It returns this value to the main function.
 */
 ```
 
-This quickSort function takes an array, a left value and a right value and run's the pivot helper function over the array items in a range. It does this recursively, as the values to the left and right decrease. When the left and right values meet then there's nothing left to sort so it will return the array. Again, like merge sort, the trickiest thing to wrap your head around here is the recursive nature.
+This quickSort function takes an array, a left value and a right value and runs the pivot helper function over the array items in a range. It does this recursively, as the values to the left and right decrease. When the left and right values meet then there's nothing left to sort so it will return the array. Again, like merge sort, the trickiest thing to wrap your head around here is the recursive nature.
 
 ```javascript
 //JavaScript

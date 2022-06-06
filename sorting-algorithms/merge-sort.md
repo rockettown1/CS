@@ -79,21 +79,9 @@ func MergeSort(arr []int) []int {
 }
 ```
 
-The logic above can be used to implement Merge Sort in different programming languages (there's nothing here unique to Go).&#x20;
-
 I feel like that hardest bit to grasp about this algorithm is the recursive nature of it. It usually helps to visualise the call stack, but what is essentially happening is we call MergeSort and pass it an array, split the array into a left and right half, then it calls itself passing in each half. Which will happen again, and again and again until each half is only 1 element.
 
 When the **left**  variable and the **right** variable both receive a single element, MergeSort calls the merge function and returns the result (which will be used as the left or right variable for the previous call) and so on back to the original call which will finally call merge and return the result.&#x20;
 
 <img src="../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
 
-### Discussion
-
-Merge sort is a lot faster than the three elementary sorting algorithms (bubble, selection and insertion) when the data starts to become large. \
-The BigO (time complexity) is O(n log n) which is much faster than the O(n^2) of the elementary algorithms. \
-\
-The O(n log n) comes from:\
-\- the number of "splits" where we separate the array into left and right (or in other words, the number of times MergeSort calls itself) is O (log n)\
-\- the number of operations in our merge helper function (which actually sorts the items into order) is O(n) because as the input array grows we will have to operate on more items. \
-\
-Combining these together to get O(n log n)
