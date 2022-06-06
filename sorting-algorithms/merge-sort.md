@@ -85,3 +85,13 @@ When the **left**  variable and the **right** variable both receive a single ele
 
 <img src="../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
 
+### Discussion
+
+Merge sort is a lot faster than the three elementary sorting algorithms (bubble, selection and insertion) when the data starts to become large. \
+The BigO (time complexity) is O(n log n) which is much faster than the O(n^2) of the elementary algorithms. \
+\
+The O(n log n) comes from:\
+\- the number of "splits" where we separate the array into left and right (or in other words, the number of times MergeSort calls itself) is O (log n)\
+\- the number of operations in our merge helper function (which actually sorts the items into order) is O(n) because as the input array grows we will have to operate on more items. \
+\
+Combining these together to get O(n log n)
