@@ -38,9 +38,9 @@ Given the array \[2,5,3,9,6,1,7,4] (for this example we'll start with the first 
 ****\[<mark style="color:green;">1</mark>, <mark style="color:green;">2</mark>, <mark style="color:green;">3</mark>, 9, 6, 5, 7, 4] <- we would go through the process with the value 3 as the pivot point, however as there are no numbers less than three it doesn't move and is in its correctly sorted position. Our algorithm would then repeat the process for the left of 3, but in this case there is nothing to sort left of 3 so we move on to the right of 3.\
 \
 **Fourth pass**\
-****\[<mark style="color:green;">1, 2, 3</mark>, <mark style="color:red;">9</mark>, <mark style="color:red;">6</mark>, 5, 7, 4] -> \[<mark style="color:green;">1, 2, 3</mark>, <mark style="color:red;">9</mark>, <mark style="color:blue;">6</mark>, 5, 7, 4] -> keeping track that 6 is less than 9\
-\[<mark style="color:green;">1, 2, 3</mark>, <mark style="color:red;">9</mark>, 6, <mark style="color:red;">5</mark>, 7, 4] -> \[<mark style="color:green;">1, 2, 3</mark>, <mark style="color:red;">9</mark>, <mark style="color:blue;">6</mark>, <mark style="color:blue;">5</mark>, 7, 4]\
-\[<mark style="color:green;">1, 2, 3</mark>, <mark style="color:red;">9</mark>, 6, 5, <mark style="color:red;">7</mark>, 4] -> \[<mark style="color:green;">1, 2, 3</mark>, <mark style="color:red;">9</mark>, <mark style="color:blue;">6</mark>, <mark style="color:blue;">5</mark>, <mark style="color:blue;">7</mark>, 4]\
+****\[<mark style="color:green;">1, 2, 3</mark>, <mark style="color:red;">9</mark>, <mark style="color:red;">6</mark>, 5, 7, 4] -> \[<mark style="color:green;">1, 2, 3</mark>, <mark style="color:red;">9</mark>, <mark style="color:blue;">6</mark>, 5, 7, 4] -> move 6 to right of pivot (although it's already there)\
+\[<mark style="color:green;">1, 2, 3</mark>, <mark style="color:red;">9</mark>, 6, <mark style="color:red;">5</mark>, 7, 4] -> \[<mark style="color:green;">1, 2, 3</mark>, <mark style="color:red;">9</mark>, <mark style="color:blue;">6</mark>, <mark style="color:blue;">5</mark>, 7, 4] -> move 5 to the right of 6 (although it's already there)\
+\[<mark style="color:green;">1, 2, 3</mark>, <mark style="color:red;">9</mark>, 6, 5, <mark style="color:red;">7</mark>, 4] -> \[<mark style="color:green;">1, 2, 3</mark>, <mark style="color:red;">9</mark>, <mark style="color:blue;">6</mark>, <mark style="color:blue;">5</mark>, <mark style="color:blue;">7</mark>, 4] -> same as above\
 \[<mark style="color:green;">1, 2, 3</mark>, <mark style="color:red;">9</mark>, 6, 5, 7, <mark style="color:red;">4</mark>] -> \[<mark style="color:green;">1, 2, 3</mark>, <mark style="color:red;">9</mark>, <mark style="color:blue;">6</mark>, <mark style="color:blue;">5</mark>, <mark style="color:blue;">7</mark>, <mark style="color:blue;">4</mark>] -> by the end there are four values less than 9\
 \[<mark style="color:green;">1, 2, 3</mark>, <mark style="color:orange;">9</mark>, 6, 5, 7, <mark style="color:orange;">4</mark>] -> \[<mark style="color:green;">1, 2, 3</mark>, 4, 6, 5, 7, <mark style="color:green;">9</mark>] -> the value 9 moves to this index position and is sorted\
 \
@@ -63,6 +63,60 @@ And the same with the right side.\
 ****\[<mark style="color:green;">1, 2, 3</mark>, <mark style="color:green;">4</mark>, <mark style="color:green;">5</mark>, <mark style="color:green;">6</mark>, <mark style="color:green;">7</mark>, <mark style="color:green;">9</mark>]\
 
 
+To start we're going to use a helper function called pivot which will complete one pass by:\
+\- Selecting a starting pivot\
+\- Carrying out comparisons on the array items being looked at. \
+\- Carry out swaps where necessary\
+\- Move the item at the pivot point to its new (and correctly sorted place)\
+\- Return the pivot index\
+\
+The main Quick Sort function will use the pivot point to recursively execute on the items to the left of the pivot point, and the items to the right of the pivot point. At the point where the left and right pointers are the same, then there are no more items to compare. Here's a JavaScript implementation.
 
+```javascript
+//JavaScript
+
+function pivot(arr, start, end) {
+  let pivot = arr[start];
+  let swapIndex = start;
+  for (let i = start + 1; i <= end; i++) {
+    if (arr[i] < pivot) {
+      swapIndex++;
+      const temp = arr[swapIndex];
+      arr[swapIndex] = arr[i];
+      arr[i] = temp;
+    }
+  }
+  const temp = arr[start];
+  arr[start] = arr[swapIndex];
+  arr[swapIndex] = temp;
+  
+  return swapIndex;
+}
+
+/*
+Takes the arr, and a start and end value so it knows which items to loop through.
+The swapIndex variable keeps track of how many swaps were made, so it can know where
+to finally place the pivot item. It returns this value to the main function.
+*/
+```
+
+This quickSort function takes an array, a left value and a right value and run's the pivot helper function over the array items in a range. It does this recursively, as the values to the left and right decrease. When the left and right values meet then there's nothing left to sort so it will return the array. Again, like merge sort, the trickiest thing to wrap your head around here is the recursive nature.
+
+```javascript
+//JavaScript
+//This makes use of JS's ability to have default parameters
+
+function quickSort(arr, left = 0, right = arr.length - 1) {
+  if (left < right) {
+    let pivotIndex = pivot(arr, left, right);
+    quickSort(arr, left, pivotIndex - 1);
+    quickSort(arr, pivotIndex + 1, right);
+  }
+
+  return arr;
+}
+```
+
+Note: Quick sort is an in-place algorithm. You may see some implementations online that use a slice method to take the left and right sections, and ultimately combine these new arrays back together. As that implementation creates new arrays it would no longer in-place and not really a proper quick sort.
 
 \

@@ -79,6 +79,8 @@ func MergeSort(arr []int) []int {
 }
 ```
 
+The logic above can be used to implement Merge Sort in different programming languages (there's nothing here unique to Go).&#x20;
+
 I feel like that hardest bit to grasp about this algorithm is the recursive nature of it. It usually helps to visualise the call stack, but what is essentially happening is we call MergeSort and pass it an array, split the array into a left and right half, then it calls itself passing in each half. Which will happen again, and again and again until each half is only 1 element.
 
 When the **left**  variable and the **right** variable both receive a single element, MergeSort calls the merge function and returns the result (which will be used as the left or right variable for the previous call) and so on back to the original call which will finally call merge and return the result.&#x20;
