@@ -13,11 +13,11 @@
 ## Data Structures
 
 * [data-structures](data-structures/README.md)
+  * [Singly Linked Lists](data-structures/singly-linked-lists.md)
   * [Doubly Linked Lists](data-structures/doubly-linked-lists.md)
   * [Graphs](data-structures/graphs.md)
   * [Hash Tables](data-structures/hash-tables.md)
   * [Heaps](data-structures/heaps.md)
-  * [Singly Linked Lists](data-structures/singly-linked-lists.md)
   * [Stacks & Queues](data-structures/stacks-and-queues.md)
   * [Trees](data-structures/trees.md)
 
