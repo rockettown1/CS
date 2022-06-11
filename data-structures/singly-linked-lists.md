@@ -247,7 +247,7 @@ This is a very common interview question. It's a little hard to wrap your head a
   }
 ```
 
-<img src="../.gitbook/assets/file.drawing (1).svg" alt="" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.drawing (1) (1).svg" alt="" class="gitbook-drawing">
 
 In English:\
 So we start by swapping the head and the tail. Making use of a temp variable to keep track of the current node we are looking at in the loop.\

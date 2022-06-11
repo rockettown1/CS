@@ -69,6 +69,11 @@ class Stack {
   public pop() {
     if (this.size === 0) return null;
     let current = this.first;
+    
+    if (this.first === this.last) {
+      this.last = null;
+    }
+    
     this.first = current?.next!;
     this.size--;
 
@@ -76,3 +81,65 @@ class Stack {
   }
 }
 ```
+
+### Queues
+
+Very similar to a stack but first in first out (like a print queue on a printer). Like with a stack, it's an abstract concept and there are multiple ways to implement the idea. You could use an array, but like above, you'd get a load of extra stuff that comes with arrays that just isn't needed, so it's usually preferred to implement a queue manually using a linked list.
+
+If we were using an array we could add to the start and remove from the end (using the unshift and pop methods in JS/TS). Remember thought with arrays, adding to the start means the entire array will then need re-indexing (expensive depending on the size of the array).
+
+#### Implementing a Queue with a linked list.
+
+To keep it constant time O(1) we add to the end and we remove from the beginning. Here we call them enqueue and dequeue but they are just the same push and shift methods from a linked list.
+
+```typescript
+class Node {
+  public next: Node | null;
+  constructor(public val: any) {
+    this.val = val;
+    this.next = null;
+  }
+}
+
+class Queue {
+  first: Node | null;
+  last: Node | null;
+  size: number;
+
+  constructor() {
+    this.first = null;
+    this.last = null;
+    this.size = 0;
+  }
+  
+public enqueue(val: any) {
+    const node = new Node(val);
+
+    if (!this.first) {
+      this.first = node;
+      this.last = this.first;
+      this.size = 1;
+    } else {
+      this.last!.next = node;
+      this.last = node;
+      this.size++;
+    }
+    return this;
+  }
+
+  public dequeue() {
+    if (this.size === 0) return null;
+    let current = this.first;
+    if (this.first === this.last) {
+      this.last = null;
+    }
+
+    this.first = current?.next!;
+    this.size--;
+
+    return current;
+  }
+  
+}
+```
+
