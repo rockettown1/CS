@@ -132,3 +132,39 @@ class BinarySearchTree {
   }
 }
 ```
+
+Searching for a value is very similar to inserting. When we were inserting, if we found a place where the left or right didn't exist, we inserted the value in the correct place.&#x20;
+
+While searching, we follow the same steps but instead of inserting we return false because the value we were looking for isn't in there (we hit a dead end in the tree)
+
+```typescript
+public search(val: number) {
+    let current = this.root;
+
+    if (!current) {
+      return false;
+    }
+
+    while (true) {
+      if (val == current.val) {
+        return true;
+      }
+
+      if (val > current.val) {
+        if (current.right) {
+          current = current.right;
+        } else {
+          return false;
+        }
+      } else if (val < current.val) {
+        if (current.left) {
+          current = current.left;
+        } else {
+          return false;
+        }
+      }
+    }
+  }
+```
+
+Notes on traversing trees can be found in the sections on [Breadth First Search](../searching-algorithms/breadth-first-search.md) and [Depth First Search](../searching-algorithms/depth-first-search.md), in the searching-algorithm part of this book.
