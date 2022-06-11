@@ -1,2 +1,106 @@
-# Breadth First Search
+---
+description: >-
+  The order we visit nodes in a tree (visit nodes on the same level and work our
+  way down the tree)
+---
 
+# Breadth First Search (BFS)
+
+When we are working with a tree structure we are able to use the BFS algorithm. The implementation of the algorithm depends on what kind of tree we are searching through, in the examples here I'll show an implementation for working with a Binary Search Tree (ie where each node has a left and right property) but also a more generic implementation for working with a generic tree structure (ie where each node has a children property.
+
+This algorithm makes use of a queue (check the [Stacks & Queues](../data-structures/stacks-and-queues.md#queues) section for a recap if needed)
+
+Image we are working with the following tree:
+
+<img src="../.gitbook/assets/file.drawing (2).svg" alt="" class="gitbook-drawing">
+
+We visit the nodes along the horizontal (breadth first) each level at a time. So the order in which we visit the nodes will be: 5, 2, 7, 1, 3, 6, 9 (or looking at the colours above: the red (root) node, the blue notes then the orange nodes).
+
+The way we can keep track of nodes we need to visit is by using a queue, and we also store the values we have visited. In this explanation we won't be 'searching' for something, but rather just visiting each node in order.
+
+In English\
+Note: This algorithm runs as long as there is something in the queue. For this example we will keep track (store) each node we have visited in an array.
+
+* We start by pushing the root node into the queue. Queue: \[ 5 ] Visited: \[ ]
+* We check whether there is anything in the queue, and if there is we pop it off and store it in the visited array. Queue: \[ ] Visited: \[ 5 ]
+* We then check whether the current node has a node to its left, and if it does store it in the queue. And do the same for the right Queue: \[ 2, 7 ] Visited: \[ 5 ]
+* The process then repeats: We check whether anything is in the queue (yes), and we pop it off and store it in visited Queue: \[ 7 ] Visited: \[ 5, 2 ]
+* We then check whether the current node (2) has anything on its left and right, if it does, they join the queue. Queue: \[ 7, 1, 3 ] Visited: \[ 5, 2 ]
+* The process then repeats which looks like this:\
+  Queue: \[ 1, 3, 6, 9 ] Visited: \[ 5, 2, 7 ]\
+  Queue: \[ 3, 6, 9 ] Visited: \[ 5, 2, 7, 1 ]\
+  Queue: \[ 6, 9 ] Visited: \[ 5, 2, 7, 1, 3 ]\
+  Queue: \[ 9 ] Visited: \[ 5, 2, 7, 1, 3, 6 ]\
+  Queue: \[  ] Visited: \[ 5, 2, 7, 1, 3, 6, 9 ]
+* Nothing left in the queue so the algorithm has visited each node in order.
+
+In an actual use case you might be searching for a value, in which case you would carry out a comparison against each node and stop if you find what you're looking for.&#x20;
+
+Here's a code implementation of the above explanation in TypeScript. A few notes: It uses the Binary Search Tree class used in that section, in which each node has a left, right and value property. Also, for simplicity I shall use a basic array as the queue, but as mentioned in the Queue notes, we should really be implementing a queue using a linked list.
+
+```typescript
+//BFS on a binary search tree (the object 'binaryTree' just refers to the tree being operated on)
+
+function BFS(){
+    let node = binaryTree.root
+    let visited: Node[] = []
+    let queue: Node[] = []
+
+    queue.push(node)
+
+    while (queue.length > 0) {
+        node = queue.shift()
+        visited.push(node)
+        if (node.left) queue.push(node.left)
+        if (node.right) queue.push(node.right)
+    }
+
+return visited
+
+}
+```
+
+### BFS on a generic tree structure
+
+Below is a general example of the BFS algorithm on a tree (not specifically a binary tree). The tree in this example uses Nodes with the following structure for simplicity, but in reality it would of course have a value property. You can assume the Generic Tree class has a root property, the same as a Binary Tree.
+
+```typescript
+class Node {
+  id: number;
+  parentId: number | null;
+  children?: Node[] | null;
+
+  constructor(id: number, parentId: number | null) {
+    this.id = id;
+    this.parentId = parentId;
+    this.children = [];
+  }
+}
+```
+
+This example also uses a [custom Queue implementation](../data-structures/stacks-and-queues.md#queues) based on a linked list, with an enqueue and dequeue method. See that section for a reminder if needed.
+
+```typescript
+//BFS on a generic tree (the object 'genTree' just refers to the tree being operated on)
+
+function BFS(){
+  const queue = new Queue();
+  let visited = [];
+
+  queue.enqueue(genTree.root);
+
+  while (queue.size > 0) {
+    const dequeuedVal = queue.dequeue()!.val;
+    visited.push(dequeuedVal.id);
+    
+    //queuing the children Nodes
+    if (dequeuedVal.children.length > 0) {
+      for (let child of dequeuedVal.children) {
+        queue.enqueue(child);
+      }
+    }
+  }
+
+return visited;  
+}
+```

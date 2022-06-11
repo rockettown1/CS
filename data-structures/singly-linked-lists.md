@@ -8,7 +8,7 @@ description: >-
 
 This data structure contains a head, tail and length property. Her's a linked list which stores the value 4, 6, 1 and 3.
 
-<img src="../.gitbook/assets/file.drawing (2).svg" alt="" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.drawing (2) (1).svg" alt="" class="gitbook-drawing">
 
 {% embed url="https://visualgo.net/en/list" %}
 Here's a great visualisation of working with a linked list

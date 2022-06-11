@@ -27,7 +27,7 @@
   * [Searching Background Info](algorithms/searching-algorithms/searching-background-info.md)
   * [Linear Search](searching-algorithms/linear-search.md)
   * [Binary Search](searching-algorithms/binary-search.md)
-  * [Breadth First Search](searching-algorithms/breadth-first-search.md)
+  * [Breadth First Search (BFS)](searching-algorithms/breadth-first-search.md)
   * [Depth First Search](searching-algorithms/depth-first-search.md)
 * [sorting-algorithms](sorting-algorithms/README.md)
   * [Sorting Background Info](sorting-algorithms/sorting-background-info.md)

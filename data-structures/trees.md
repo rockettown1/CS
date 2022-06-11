@@ -33,7 +33,7 @@ Common use cases:
 
 With a binary tree, each node can have (at most) two children.
 
-#### Binary Search Trees
+#### Binary Search Trees (aka Ordered Binary Tree aka Sorted Binary Tree)
 
 BSTs store ordered data, where every item less than the parent is to the left, and every item greater than the parent is to the right.
 
