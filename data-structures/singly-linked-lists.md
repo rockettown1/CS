@@ -66,7 +66,7 @@ This class will get us started with an empty linked list. Each list will have th
 * Shift and Unshift
 * Get and Set
 * Insert and Remove
-* Convert an array into a singly linked list
+* Reversing a linked list
 
 ### Push method
 
