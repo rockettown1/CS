@@ -91,12 +91,15 @@ There's nothing more on the left or right so we're go back to the Second call.\
 **First call** **(right side)**\
 This time we go down the right side\
 \
-**Fifth call**\
+**Fifth call (left side)**\
 ****Called on Node 7: visited = \[5, 2, 1, 3, 7]\
 \
 **Sixth call (left and right side)**\
 ****Called on Node 6: visited = \[5, 2, 1, 3, 7, 6] \
 There's nothing more on the left t so we go back to the Fifth call\
+\
+**Fifth call (right side)**\
+****We're back to the call on Node 7 where we call the function again on the right:\
 \
 **Seventh call (left and right side)**\
 ****Called on Node 9: visited =  \[5, 2, 1, 3, 7, 6, 9]\
@@ -106,7 +109,7 @@ There's no more on the left and right so we go back to the Fifth call\
 ****We've now gone down all the paths so the function ends and we go back to the First call\
 \
 **First call (back for the final time)**\
-We've not gone down all the paths so the function ends, and we go back to the main dfs function:\
+We've not gone down all the paths so the function ends, and we go back to the main DFS function:\
 \
 And we then return the visited array. PHEW!
 
