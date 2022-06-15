@@ -39,10 +39,11 @@ In an actual use case you might be searching for a value, in which case you woul
 Here's a code implementation of the above explanation in TypeScript. A few notes: It uses the Binary Search Tree class used in that section, in which each node has a left, right and value property. Also, for simplicity I shall use a basic array as the queue, but as mentioned in the Queue notes, we should really be implementing a queue using a linked list.
 
 ```typescript
-//BFS on a binary search tree (the object 'binaryTree' just refers to the tree being operated on)
+//This function assumes we are using the BinarySearchTree class and Node class
+//Go to that section to see the implementation
 
-function BFS(){
-    let node = binaryTree.root
+function BFS(bst: BinarySearchTree){
+    let node = bst.root
     let visited: Node[] = []
     let queue: Node[] = []
 
@@ -83,13 +84,14 @@ class Node<T> {
 This example also uses a [custom Queue implementation](../data-structures/stacks-and-queues.md#queues) based on a linked list, with an enqueue and dequeue method. See that section for a reminder if needed.
 
 ```typescript
-//BFS on a generic tree (the object 'genTree' just refers to the tree being operated on)
+//Assumes we are using a GenericTree class
+//See the appendix below for an implementation
 
-function BFS(){
+function BFS(gt: GenericTree){
   const queue = new Queue();
   let visited = [];
 
-  queue.enqueue(genTree.root);
+  queue.enqueue(gt.root);
 
   while (queue.size > 0) {
     const dequeuedVal = queue.dequeue()!.val;

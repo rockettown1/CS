@@ -37,7 +37,7 @@ With a binary tree, each node can have (at most) two children.
 
 BSTs store ordered data, where every item less than the parent is to the left, and every item greater than the parent is to the right.
 
-<img src="../.gitbook/assets/file.drawing (1).svg" alt="" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.drawing (1) (1).svg" alt="" class="gitbook-drawing">
 
 Here's an implementation in TypeScript. Note that each item in the tree is represented as a Node (just like a linked list)
 

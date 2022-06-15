@@ -42,9 +42,13 @@ The tricky bit here is that we need to go back to revisit past nodes to see if t
 Here's we make use of a helper function (which I've called store, but can't remember why) which we will call recursively on each left and right node. The main job of this helper function is to push the node's value to the visited array, then check if there's anything left and repeat, then check if there's anything right and repeat. As always, it can be a little tricky to visualise the recursive calls so let's visualise it below.
 
 ```typescript
-function dfsPreorder() {
+//This function assumes we are using a BinarySearchTree class and a Node class
+//Go to that section for the implementation
+
+
+function dfsPreorder(bst: BinarySearchTree) {
     const visited: number[] = [];
-    let current = this.root;
+    let current = bst.root;
 
     if (!current) {
       return;
@@ -115,15 +119,15 @@ And we then return the visited array. PHEW!
 
 
 
-### DFS Preorder (Iterative)
+### DFS Preorder (iterative)
 
 In the iterative version of this algorithm we make use of a stack (last in first out) in a similar way to how breadth first search used a queue. The stack allows us to keep track of which nodes we've passed but not visited all the way. In this implementation (for simplicity) I'm going to use a standard JS array as the stack, but ideally we'd use our own stack implementation as well (linked list). We will keep looping until the stack is empty.
 
 ```typescript
-function dfsPreorder(){
+function dfsPreorder(bst: BinarySearchTree){
     const visited: number[] = [];
     const stack: Node[] = [];
-    let node = this.root;
+    let node = bfs.root;
     
     if (node) {
       stack.push(node);
@@ -144,4 +148,43 @@ function dfsPreorder(){
   }
 
 }
+```
+
+### Post Order
+
+The idea here is that you don't add a node to the visited array until there's no more children left to add. So working with the same binary search tree as before:
+
+<img src="../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
+
+The visited order will look like this (assuming we traverse the left side first)
+
+visited = \[1, 3, 2, 6, 9, 7, 5]
+
+And luckily for us, that just involves moving a single line in the recursive version so we are pushing the Node to the visited array AFTER we have recursed on the left and right.
+
+### DFS Postorder (recursive)
+
+```typescript
+function dfsPostorder(bst: BinarySearchTree) {
+    const visited: number[] = [];
+    let current = bst.root;
+
+    if (!current) {
+      return;
+    }
+
+    function store(node: Node) {
+      if (node.left) {
+        store(node.left);
+      }
+      if (node.right) {
+        store(node.right);
+      }
+      visited.push(node.val);
+    }
+
+    store(current);
+
+    return visited;
+  }
 ```

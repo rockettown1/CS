@@ -19,7 +19,7 @@ take the number: <mark style="color:red;">356</mark>, <mark style="color:blue;">
 
 The first time we loop though the list looking at the 1s, and we sort them into 'buckets' based on the numbers in that position. Then we put them back into a list format in order of buckets
 
-<img src="../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.drawing (1).svg" alt="" class="gitbook-drawing">
 
 (Ignore the fact that this 3-item list is already sorted haha) We then look at the digit in the 10s column and repeat the process. And we repeat this process based on the length of the longest digit (in this case 4 times, because 4119 has 4 digits).
 

@@ -85,7 +85,7 @@ I feel like that hardest bit to grasp about this algorithm is the recursive natu
 
 When the **left**  variable and the **right** variable both receive a single element, MergeSort calls the merge function and returns the result (which will be used as the left or right variable for the previous call) and so on back to the original call which will finally call merge and return the result.&#x20;
 
-<img src="../.gitbook/assets/file.drawing (1) (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.drawing (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
 
 ### Discussion
 
