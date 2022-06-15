@@ -65,12 +65,14 @@ return visited
 Below is a general example of the BFS algorithm on a tree (not specifically a binary tree). The tree in this example uses Nodes with the following structure for simplicity, but in reality it would of course have a value property. You can assume the Generic Tree class has a root property, the same as a Binary Tree.
 
 ```typescript
-class Node {
-  id: number;
-  parentId: number | null;
-  children?: Node[] | null;
+//generic Node class
 
-  constructor(id: number, parentId: number | null) {
+class Node<T> {
+  id: T;
+  parentId: T | null;
+  children?: Node<T>[] | null;
+
+  constructor(id: T, parentId: T | null) {
     this.id = id;
     this.parentId = parentId;
     this.children = [];
@@ -103,4 +105,114 @@ function BFS(){
 
 return visited;  
 }
+```
+
+### Appendix
+
+Here's a just for clarity implementation and population of a generic tree. Note: I've just made this up, I'm not claiming this is a good way of doing it. It's just if you wanted to copy the code into an editor and mess around with it:\
+
+
+```typescript
+class Node<T> {
+  id: T;
+  parentId: T | null;
+  children?: Node<T>[] | null;
+
+  constructor(id: T, parentId: T | null) {
+    this.id = id;
+    this.parentId = parentId;
+    this.children = [];
+  }
+}
+
+export class GenericTree<T> {
+  root: Node<T> | null;
+
+  constructor() {
+    this.root = null;
+  }
+
+  public build(data: { id: T; parentId: T | null }[]) {
+    let nodeArray: Node<T>[] = [];
+
+    for (let i = 0; i < data.length; i++) {
+      nodeArray.push(new Node<T>(data[i].id, data[i].parentId));
+    }
+
+    for (let i = 0; i < nodeArray.length; i++) {
+      for (let j = 0; j < nodeArray.length; j++) {
+        if (nodeArray[i].parentId == nodeArray[j].id) {
+          nodeArray[j].children?.push(nodeArray[i]);
+        }
+      }
+      if (!nodeArray[i].parentId) {
+        this.root = nodeArray[i];
+      }
+    }
+    return this;
+  }
+  
+  public breathFirstSearch(){
+    const queue = new Queue();
+    let visited = [];
+
+    queue.enqueue(this.root);
+
+    while (queue.size > 0) {
+      const dequeuedVal = queue.dequeue()!.val;
+      
+      //just using the id here for clarity
+      visited.push(dequeuedVal.id);
+    
+      //queuing the children Nodes
+      if (dequeuedVal.children.length > 0) {
+        for (let child of dequeuedVal.children) {
+          queue.enqueue(child);
+        }
+      }
+    }
+
+  return visited;  
+  }
+}
+
+
+
+//convert this data into a generic tree structure
+const data = [
+  { id: 56, parentId: 62 },
+  { id: 81, parentId: 80 },
+  { id: 74, parentId: null },
+  { id: 76, parentId: 80 },
+  { id: 63, parentId: 62 },
+  { id: 80, parentId: 86 },
+  { id: 87, parentId: 86 },
+  { id: 62, parentId: 74 },
+  { id: 86, parentId: 74 },
+];
+
+const genTree = new GenericTree<number>().build(data);
+
+const visitOrder = genTree.breathFirstSearch() 
+// logs -> [74, 62, 86, 56, 63, 80, 87, 81, 76]
+
+```
+
+If we had the data from the diagram above:
+
+```typescript
+const data = [
+  { id: 2, parentId: 5 },
+  { id: 1, parentId: 2 },
+  { id: 5, parentId: null },
+  { id: 3, parentId: 2 },
+  { id: 9, parentId: 7 },
+  { id: 7, parentId: 5 },
+  { id: 6, parentId: 7 }
+]
+
+const genTree = new GenericTree<number>().build(data);
+
+const visitOrder = genTree.breathFirstSearch() 
+// logs -> [5, 2, 7, 1, 4, 6, 9] as seen earlier
 ```

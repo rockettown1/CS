@@ -9,7 +9,7 @@ description: >-
 
 Here's a random example of what a tree structure might look like
 
-<img src="../.gitbook/assets/file.drawing (3).svg" alt="" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.drawing (3) (1).svg" alt="" class="gitbook-drawing">
 
 Terminology:
 
